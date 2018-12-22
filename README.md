@@ -4,7 +4,7 @@ This project is the second project in full stack web development nano-degree by 
 
 ## What the project is all about ? 
 
-In this project we asked to build an application that allows user to register in a website and be able to post, edit and delete their own items. The website will provides a list of items within a variety of categories as well as it provide user registration and authentication system. 
+In this project we asked to build an application that allow user to register in a website and be able to post, edit and delete their own items. The website will provides a list of items within a variety of categories as well as it provide user registration and authentication system. 
 
 ## site scenario  : 
 
@@ -22,8 +22,8 @@ In this project we asked to build an application that allows user to register in
 5- for registration system  we used google OAuth2 . Learn more :https://developers.google.com/api-client-library/python/guide/aaa_oauth
 
 
-‘’
-Using Google Login
+
+> Using Google Login
 To get the Google login working there are a few additional steps:
 1. Go to Google Dev Console
 2. Sign up or Login if prompted
@@ -38,7 +38,7 @@ To get the Google login working there are a few additional steps:
 11. On the Dev Console Select Download JSON
 12. Rename JSON file to client_secrets.json
 13. Place JSON file in catalog directory that you cloned from here
-‘’
+
 
 ## What you need as pre-requiremnet to run this project?
 
