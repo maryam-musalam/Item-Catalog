@@ -334,11 +334,14 @@ def uploader():
 @app.route('/Electronics/<int:category_id>/<int:item_id>/edit',
            methods=['GET', 'POST'])
 def editItem(category_id, item_id):
-    if 'username' not in login_session:
-        return redirect('/login')
     editItem = session.query(ElectronicItems).filter_by(id=item_id).one()
+    creator = getUserInfo(editItem.user_id)
     catagory = session.query(Categories).filter_by(
-               id=editItem.category_id).one()
+           id=editItem.category_id).one()
+    if ('username' not in login_session or
+            creator.id != login_session['user_id']):
+        flash("You are not allowed to access there")
+        return redirect('/login')
     if request.method == 'POST':
         if request.form['name']:
             editItem.name = request.form['name']
@@ -375,7 +378,10 @@ def editItem(category_id, item_id):
 @app.route('/Electronics/<int:item_id>/delete', methods=['GET', 'POST'])
 def deleteItem(item_id):
     deleteItem = session.query(ElectronicItems).filter_by(id=item_id).one()
-    if 'username' not in login_session:
+    creator = getUserInfo(deleteItem.user_id)
+    if ('username' not in login_session or
+            creator.id != login_session['user_id']):
+        flash("You are not allowed to access there")
         return redirect('/login')
     if deleteItem.user_id != login_session['user_id']:
         return "<script> function myfunction()\
